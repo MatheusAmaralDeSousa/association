@@ -3,6 +3,7 @@ User.destroy_all
 Debt.destroy_all
 Person.destroy_all
 
+
 User.create email: 'admin@admin.com', password: '111111'
 
 puts "Usuário criado:"
