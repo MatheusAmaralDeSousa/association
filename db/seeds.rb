@@ -16,7 +16,7 @@ puts "111111"
 end
 
 3000.times do |counter|
-  puts "Inserting Person #{counter}"
+  puts "Inserting Person #{counter}" 
 
   attrs = {
     name: Faker::Name.name,
