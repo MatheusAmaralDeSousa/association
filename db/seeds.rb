@@ -1,7 +1,8 @@
 puts "Destroying existing records..."
 User.destroy_all
+Payment.destroy_all
 Person.destroy_all
-Debts.destroy_all
+Debt.destroy_all
 User.create email: 'admin@admin.com', password: '111111'
 
 puts "Usuário criado:"
@@ -22,19 +23,29 @@ end
 
 100.times do
     Person.create(
-        name: Faker:Name.name,
-        phone_number: Faker:: PhoneNumber.phone_number,
-        national_id: Faker:: IDNumber.brazilian_citizen_number,
-        active: Faker:: Boolean.boolean,
-        User: User.all.sample
+        name: Faker::Name.name,
+        phone_number: Faker::PhoneNumber.phone_number,
+        national_id: Faker::IDNumber.brazilian_citizen_number,
+        active: Faker::Boolean.boolean,
+        user: User.all.sample
     )
 end
 
 500.times do
-    Debts.create!(
-        Person: Person.all.sample,
+    Debt.create(
+        person: Person.all.sample,
         amount: Faker::Number.decimal(l_digits: 2),
-        observation: Faker:: Lorem.setence,
+        observation: Faker::Lorem.sentence,
+        created_at: Faker::Time.between(from: 2.years.ago, to: Time.current),
+        updated_at: Faker::Time.between(from: 2.years.ago, to: Time.current)
+    )
+end
+
+500.times do
+    Payment.create(
+        person: Person.all.sample,
+        amount: Faker::Number.decimal(l_digits: 2),
+        paid_at: Faker::Time.between(from: 2.years.ago, to: Time.current),      
         created_at: Faker::Time.between(from: 2.years.ago, to: Time.current),
         updated_at: Faker::Time.between(from: 2.years.ago, to: Time.current)
     )
