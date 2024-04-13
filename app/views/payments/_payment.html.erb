@@ -1,17 +1,5 @@
-<div id="<%= dom_id payment %>">
-  <p>
-    <strong>Person:</strong>
-    <%= payment.person_id %>
-  </p>
-
-  <p>
-    <strong>Amount:</strong>
-    <%= payment.amount %>
-  </p>
-
-  <p>
-    <strong>Paid at:</strong>
-    <%= payment.paid_at %>
-  </p>
-
+<div id="<%= dom_id(payment) %>" class="payment-details">
+  <p><strong>Person:</strong> <%= payment.person_id %></p>
+  <p><strong>Amount:</strong> <%= payment.amount %></p>
+  <p><strong>Paid at:</strong> <%= payment.paid_at %></p>
 </div>
