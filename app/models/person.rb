@@ -18,8 +18,15 @@ class Person < ApplicationRecord
   # - sum payments
   # - rename to "balance"
 
+  def total_debts
+    debts_total = debts.sum(:amount)
+    payments_total = payments.sum(:amount)
+
+    debts_total - payments_total
+  end
+
   def update_amount
-    amount = total_debts
+    self.amount = total_debts
   end
   private
 

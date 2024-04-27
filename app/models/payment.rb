@@ -4,7 +4,7 @@ class Payment < ApplicationRecord
   after_save :update_amount
 
   def update_amount
-    Person.total_debts
-    Person.save
+    person.update_amount
+    person.save
   end
 end
