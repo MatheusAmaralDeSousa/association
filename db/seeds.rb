@@ -22,13 +22,7 @@ puts "111111"
 end
 
 100.times do
-    Person.create(
-        name: Faker::Name.name,
-        phone_number: Faker::PhoneNumber.phone_number,
-        national_id: Faker::IDNumber.brazilian_citizen_number,
-        active: Faker::Boolean.boolean,
-        user: User.all.sample
-    )
+    Person.create(name: Faker::Name.name,phone_number: Faker::PhoneNumber.phone_number,national_id: Faker::IDNumber.brazilian_citizen_number,active: Faker::Boolean.boolean,user: User.all.sample)
 end
 
 500.times do
