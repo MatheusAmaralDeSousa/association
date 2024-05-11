@@ -7,34 +7,33 @@
         <table class="table">
           <tr>
             <td>Total de pagamentos</td>
-            <td class="text-end"><%= @total_payments %></td>
+            <td class="text-end"><%= @total_payments_ativos %></td>
           </tr>
           <tr>
             <td>Total de débitos</td>
-            <td class="text-end"><%= @total_debts %></td>
+            <td class="text-end"><%= @total_debts_ativos %></td>
           </tr>
           <tr>
             <td>Saldo</td>
-            <td class="text-end"><%= @amount %></td>
+            <td class="text-end"><%= @saldo %></td>
           </tr>
         </table>
 
         <h5 class="card-title">Maior saldo</h5>
         <table class="table">
           <tr>
-            <td><%= @top_person&.name %></td>
-            <td class="text-end"><%= @top_person&.amount %></td>
+            <td><%= @associado_maior_saldo&.name %></td>
+            <td class="text-end"><%= @associado_maior_saldo&.amount %></td>
           </tr>
         </table>
 
         <h5 class="card-title">Menor saldo</h5>
         <table class="table">
           <tr>
-            <td><%= @bottom_person&.name %></td>
-            <td class="text-end"><%= @bottom_person&.amount %></td>
+            <td><%= @associado_menor_saldo&.name %></td>
+            <td class="text-end"><%= @associado_menor_saldo&.amount %></td>
           </tr>
         </table>
-        </div>
       </div>
     </div>
   </div>
@@ -55,7 +54,7 @@
       <div class="card-body">
         <h5 class="card-title">Meus últimos cadastros</h5>
         <ul>
-          <% @my_people.each do |person| %>
+          <% @ultimos_cadastro_associados.each do |person| %>
             <li><%= person.name %></li>
           <% end %>
         </ul>
@@ -69,7 +68,7 @@
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Últimos débitos</h5>
-        <%= line_chart @last_debts %>
+        <%= line_chart @ultimos_lancamentos[:debts] %>
       </div>
     </div>
   </div>
@@ -78,7 +77,7 @@
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Últimos pagamentos</h5>
-        <%= line_chart @last_payments %>
+        <%= line_chart @ultimos_lancamentos[:payments] %>
       </div>
     </div>
   </div>
